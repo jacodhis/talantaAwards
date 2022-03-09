@@ -28,3 +28,7 @@ Route::get('/vote-for-artist','artistController@index')->name('vote');
 // Route::get('/me', function () {
 //     return view('frontend.layout');
 // });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
