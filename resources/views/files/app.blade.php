@@ -7,7 +7,8 @@
         <div class="col-md-6">
                 <div class="well well-sm">
 
-                    <form class="form-horizontal" method="post">
+                    <form class="form-horizontal" method="post" action="{{route('stk')}}">
+                        @csrf
                         <fieldset>
                             <legend class="text-center header">Vote Online Now</legend>
                             <div class="form-group">
@@ -18,13 +19,13 @@
 
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <input id="lname" name="name" type="text" placeholder="Votes" class="form-control">
+                                    <input id="lname" name="amount" type="number" placeholder="Votes" class="form-control">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-md-12 text-center">
-                                    <button type="button" class="btn btn-success ">Next Step</button>
+                                    <button type="submit" class="btn btn-success ">Next Step</button>
                                 </div>
                             </div>
                         </fieldset>
@@ -34,7 +35,7 @@
             </div>
 
 
-          
+
 
 
             <div class="col-md-6">
@@ -56,13 +57,13 @@
                                         </h4>
                                     </div>
                                     <div id="collapseOne" class="panel-collapse collapse in">
-                                    <a href="create">Add artist</a>
+                                    <a href="{{route('artist.create')}}">Add artist</a>
                                         <div class="panel-body">
 
                                             <!-- //Place Table Data Here -->
 
                                             <div class="table-responsive table-bordered">
-                                                
+
                                                 <table class="table">
                                                     <thead class="success">
                                                     <tr class="success">
@@ -83,7 +84,7 @@
                                                     </tr>
 
                                                     @endforeach
-                                                   
+
                                                 </table>
                                                 {{$artists->links()}}
                                             </div>
@@ -138,7 +139,7 @@
                 </div>
             </div>
 
-           
+
         </div>
     </div>
 </div>

@@ -15,7 +15,7 @@ class artistController extends Controller
      */
     public function index()
     {
-        
+
         // dd(mt_rand(100000,500000));
         $artists = artist::paginate(5);
         return view('index2',compact('artists'));
@@ -29,6 +29,7 @@ class artistController extends Controller
     public function create()
     {
         //
+
         return view('artist.create');
     }
 
@@ -40,23 +41,13 @@ class artistController extends Controller
      */
     public function store(Request $request)
     {
-        $code = DB::table('artists')->where('code','=',$code)->get();
-
-        if(empty($code)){
-            $artist_code = mt_rand(100000,500000);
             $artist = new artist();
             $artist->name = $request->name;
-            $artist->code = $artist_code;
+            $artist->code = mt_rand(100000,500000);
             $artist->save();
-        }else{
-            echo "code already exists";
-        }
 
-
-      
-        
         session()->flash('success','artist added successfully');
-       
+
     }
 
     /**

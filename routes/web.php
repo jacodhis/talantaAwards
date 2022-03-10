@@ -22,12 +22,17 @@ Route::get('/', function () {
 //     return view('index2');
 // })->name('app');
 Route::get('/artist/{id}','artistController@show');
+Route::get('add-Artist','artistController@create')->name('artist.create');
 Route::get('/vote-for-artist','artistController@index')->name('vote');
+Route::post('store-Artist','artistController@store')->name('artist.store');
 
 
 // Route::get('/me', function () {
 //     return view('frontend.layout');
 // });
+
+//payment via mpesa
+Route::post('pay-via-mpesa-online','MpesaController@stk')->name('stk');
 
 Auth::routes();
 
