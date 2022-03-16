@@ -13,13 +13,20 @@
                             <legend class="text-center header">Vote Online Now</legend>
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <input id="fname" name="name" type="text" placeholder=" Code" class="form-control">
+                                    <input id="fname" name="vote" type="text" placeholder=" Code" class="form-control" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <input id="lname" name="amount" type="number" placeholder="Votes" class="form-control">
+                                    <input id="lname" name="vote" type="number" min="1"  placeholder="Votes" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <input id="phone" name="phone" type="tel" placeholder="enter your phone number" class="form-control" size="12"
+                                    required>
                                 </div>
                             </div>
 

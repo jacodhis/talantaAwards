@@ -10,16 +10,20 @@ class MpesaController extends Controller
     //
     public function stk(Request $request){
 
-       $amount = $request->amount;
+       $amount = $request->vote;
+    //    dd($amount);
        $name = $request->name;
+       $phone =  $request->phone;
+    //    dd($phone);
        if($amount < 0){
             dd('less than zero');
        }else{
         $BusinessShortCode = env('SHORTCODE');
         $LipaNaMpesaPasskey = env('PASSKEY');
         $TransactionType = 'CustomerPayBillOnline';
-        $Amount = $request->amount;
-        $PartyA = $request->phone;
+        $Amount = $request->vote * 10;
+        // $PartyA = $request->phone;
+        $PartyA = $phone;
         $PartyB = env('SHORTCODE');
         $PhoneNumber = $request->phone;
         // $CallBackURL = 'http://491b-105-163-200-73.ngrok.io/folder/callback.php';

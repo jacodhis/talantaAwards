@@ -41,12 +41,20 @@ class artistController extends Controller
      */
     public function store(Request $request)
     {
-            $artist = new artist();
-            $artist->name = $request->name;
-            $artist->code = mt_rand(100000,500000);
-            $artist->save();
 
-        session()->flash('success','artist added successfully');
+           $artist = new artist();
+           $artist->name = $request->name;
+           $artist->email = $request->email;
+           $artist->code = mt_rand(100000,500000);
+           $artist->save();
+           if($artist){
+            return back();
+            session()->flash('success','artist added successfully');
+           }
+           return back();
+           session()->flash('error','artist not added successfully');
+
+
 
     }
 
