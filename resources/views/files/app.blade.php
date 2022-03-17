@@ -64,7 +64,7 @@
                                         </h4>
                                     </div>
                                     <div id="collapseOne" class="panel-collapse collapse in">
-                                    <a href="{{route('artist.create')}}">Add artist</a>
+
                                         <div class="panel-body">
 
                                             <!-- //Place Table Data Here -->

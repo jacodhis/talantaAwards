@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.backend')
 
 @section('content')
 <div class="container">
@@ -8,7 +8,7 @@
             <td>Amount</td>
             <td>mpesa_receit_number</td>
             <td>transaction_date</td>
-            <td>code_artist</td>
+            <td>Artist Code</td>
         </tr>
         @forelse ($payments as $payment)
         <tr>

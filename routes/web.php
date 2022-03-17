@@ -18,11 +18,21 @@ Route::get('/', function () {
 });
 
 
+Route::get('/TalantaAt', function () {
+    return view('backend.dashboard');
+});
+
+
+
 // Route::get('/vote-for-artist', function () {
 //     return view('index2');
 // })->name('app');
 Route::get('/artist/{id}','artistController@show');
-Route::get('add-Artist','artistController@create')->name('artist.create');
+// Route::get('/add-Artist','artistController@create')->name('artist.create');
+
+Route::get('/Artists', [App\Http\Livewire\Artists::class,'render'])->name('artists');
+
+
 Route::get('/vote-for-artist','artistController@index')->name('vote');
 Route::get('store-Artist','artistController@store')->name('artist.store');
 
