@@ -27,9 +27,7 @@ Route::get('/vote-for-artist','artistController@index')->name('vote');
 Route::get('store-Artist','artistController@store')->name('artist.store');
 
 
-// Route::get('/me', function () {
-//     return view('frontend.layout');
-// });
+Route::get('/payments', 'MpesaController@payments')->name('payments');
 
 //payment via mpesa
 Route::post('pay-via-mpesa-online','MpesaController@stk')->name('stk');

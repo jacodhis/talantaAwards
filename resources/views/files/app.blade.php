@@ -13,7 +13,7 @@
                             <legend class="text-center header">Vote Online Now</legend>
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <input id="fname" name="vote" type="text" placeholder=" Code" class="form-control" required>
+                                    <input id="fname" name="code" type="text" placeholder=" Code" class="form-control" required>
                                 </div>
                             </div>
 
