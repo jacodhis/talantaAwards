@@ -26,7 +26,6 @@
                 </a>
             </li>
             <li class="nav-item">
-                {{-- <a class="nav-link " href="{{route('artist.create')}}"> --}}
                     <a class="nav-link " href="{{route('artists')}}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
@@ -34,7 +33,7 @@
                     <span class="nav-link-text ms-1">Artists</span>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link " href="#">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-app text-info text-sm opacity-10"></i>
@@ -91,5 +90,5 @@
         </div>
         <a href="#/learning-lab/bootstrap/license/argon-dashboard" target="_blank" class="btn btn-dark btn-sm w-100 mb-3">Documentation</a>
         <a class="btn btn-primary btn-sm mb-0 w-100" href="#/product/argon-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
-    </div>
+    </div> --}}
 </aside>

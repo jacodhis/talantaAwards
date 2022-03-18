@@ -76,7 +76,7 @@
                                                     <tr class="success">
                                                         <th>Name</th>
                                                         <th>Code</th>
-                                                        <th>count </th>
+
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -87,7 +87,7 @@
                                                             <a href="/artist/{{$artist->id}}">{{$artist->name}}</a>
                                                         </td>
                                                         <td>{{$artist->code}}</td>
-                                                        <td>{{$artist->works->count()}}</td>
+
                                                     </tr>
 
                                                     @endforeach

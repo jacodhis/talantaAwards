@@ -8,6 +8,11 @@ use DB;
 
 class artistController extends Controller
 {
+    public function artists()
+    {
+        $artists = artist::paginate(5);
+        return view('artist.index',compact('artists'));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +20,6 @@ class artistController extends Controller
      */
     public function index()
     {
-
-        // dd(mt_rand(100000,500000));
         $artists = artist::paginate(5);
         return view('index2',compact('artists'));
     }
@@ -42,17 +45,19 @@ class artistController extends Controller
     public function store(Request $request)
     {
 
+
+
            $artist = new artist();
            $artist->name = $request->name;
            $artist->email = $request->email;
            $artist->code = mt_rand(100000,500000);
            $artist->save();
            if($artist){
-            return back();
-            session()->flash('success','artist added successfully');
+            return back()->with('success','artist added successfully');
+           }else{
+            return back()->with('error','artist not added successfully');
+
            }
-           return back();
-           session()->flash('error','artist not added successfully');
 
 
 
@@ -67,7 +72,7 @@ class artistController extends Controller
     public function show($id)
     {
         //get artist by id
-        $artist = DB::table('artists')->where('id','=',$id)->first();
+        $artist = DB::table('artists')->where('id',$id)->first();
         if($artist == null){
             return back()->with('error','artist  does not exist');
         }

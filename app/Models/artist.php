@@ -11,8 +11,5 @@ class artist extends Model
 
     protected $guarded = [];
 
-    public function works(){
-        return $this->hasMany('App\Models\work');
 
-    }
  }

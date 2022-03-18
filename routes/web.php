@@ -27,20 +27,20 @@ Route::get('/TalantaAt', function () {
 // Route::get('/vote-for-artist', function () {
 //     return view('index2');
 // })->name('app');
-Route::get('/artist/{id}','artistController@show');
-// Route::get('/add-Artist','artistController@create')->name('artist.create');
+Route::get('/artists','artistController@artists')->name('artists');
+Route::get('/artist/{id}','artistController@show')->name('artist.show');
+Route::get('/add-Artist','artistController@create')->name('artist.create');
+Route::get('/store-Artist','artistController@store')->name('artist.store');
 
-Route::get('/Artists', [App\Http\Livewire\Artists::class,'render'])->name('artists');
 
 
 Route::get('/vote-for-artist','artistController@index')->name('vote');
-Route::get('store-Artist','artistController@store')->name('artist.store');
 
-
-Route::get('/payments', 'MpesaController@payments')->name('payments');
 
 //payment via mpesa
 Route::post('pay-via-mpesa-online','MpesaController@stk')->name('stk');
+Route::get('/payments', 'MpesaController@payments')->name('payments');
+
 
 Auth::routes();
 

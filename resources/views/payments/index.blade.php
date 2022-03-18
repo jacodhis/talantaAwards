@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+
     <table class="table">
         <tr>
             <td>Phone</td>
@@ -11,6 +12,7 @@
             <td>Artist Code</td>
         </tr>
         @forelse ($payments as $payment)
+
         <tr>
             <td>{{$payment->phone}}</td>
             <td>{{$payment->amount}}</td>

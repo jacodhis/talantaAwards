@@ -32,7 +32,7 @@ class MpesaController extends Controller
         $PartyB = env('SHORTCODE');
         $PhoneNumber = $request->phone;
         // $CallBackURL = 'http://491b-105-163-200-73.ngrok.io/folder/callback.php';
-        $CallBackURL = 'https://0b89-197-248-18-239.ngrok.io/api/mpesa/stkpush/response';
+        $CallBackURL = 'https://913c-197-248-18-239.ngrok.io/api/mpesa/stkpush/response';
         $AccountReference = 'TalantaAwards artist-code -'.$code;
         $TransactionDesc = 'Payment code X';
         $Remarks = 'Payment Succefull!';

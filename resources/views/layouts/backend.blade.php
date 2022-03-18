@@ -19,7 +19,7 @@
     <link href="{{asset('assetss/css/nucleo-svg.css')}}" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="{{asset('assetss/css/argon-dashboard.css?v=2.0.1')}}" rel="stylesheet" />
-    @livewireStyles
+    {{-- @livewireStyles --}}
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -39,6 +39,7 @@
               <h6>@yield('section-title')</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
+                @include('includes.inc.messages')
              @yield('content')
             </div>
           </div>
@@ -137,8 +138,8 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{asset('assetss/js/argon-dashboard.min.js?v=2.0.1')}}"></script>
-    @livewire('artists')
-    @livewireScripts
+    {{-- @livewire('artists') --}}
+    {{-- @livewireScripts --}}
 </body>
 
 </html>

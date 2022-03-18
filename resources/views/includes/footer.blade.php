@@ -7,14 +7,14 @@
               document.write(new Date().getFullYear())
             </script>,
             made with <i class="fa fa-heart"></i> by
-            <a href="#" class="font-weight-bold" target="_blank">Creative Tim</a>
+            <a href="#" class="font-weight-bold" target="_blank">jackodhis</a>
             for a better web.
           </div>
         </div>
         <div class="col-lg-6">
           <ul class="nav nav-footer justify-content-center justify-content-lg-end">
             <li class="nav-item">
-              <a href="#" class="nav-link text-muted" target="_blank">Creative Tim</a>
+              <a href="#" class="nav-link text-muted" target="_blank">Talanta Award</a>
             </li>
             <li class="nav-item">
               <a href="#/presentation" class="nav-link text-muted" target="_blank">About Us</a>
