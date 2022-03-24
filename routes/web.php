@@ -17,16 +17,17 @@ Route::get('/', function () {
     return view('index');
 });
 
-
-Route::get('/TalantaAt', function () {
-    return view('backend.dashboard');
+Route::get('/welcomedashboard', function () {
+    return view('dashboard');
 });
 
 
 
-// Route::get('/vote-for-artist', function () {
-//     return view('index2');
-// })->name('app');
+
+
+Route::get('/vote-for-artist', function () {
+    return view('index2');
+})->name('app');
 Route::get('/artists','artistController@artists')->name('artists');
 Route::get('/artist/{id}','artistController@show')->name('artist.show');
 Route::get('/add-Artist','artistController@create')->name('artist.create');
@@ -34,7 +35,7 @@ Route::get('/store-Artist','artistController@store')->name('artist.store');
 
 
 
-Route::get('/vote-for-artist','artistController@index')->name('vote');
+Route::get('/vote-for-artist','artistController@vote')->name('vote');
 
 
 //payment via mpesa

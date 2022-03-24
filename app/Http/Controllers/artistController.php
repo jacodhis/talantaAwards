@@ -10,15 +10,20 @@ class artistController extends Controller
 {
     public function artists()
     {
-        $artists = artist::paginate(5);
-        return view('artist.index',compact('artists'));
+
+        return view('artist.index');
     }
+    public function submit(){
+        dd('hi');
+         }
     /**
+     * public function submit(){
+     * }
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function vote()
     {
         $artists = artist::paginate(5);
         return view('index2',compact('artists'));

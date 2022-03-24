@@ -1,14 +1,14 @@
-@extends('layouts.backend')
 
+@extends('layouts.backend.layout')
 @section('title')
-add an Artist
+Add An Artist
 @endsection
 
 
 @section('content')
 
 <div class="col-md-3 mx-auto">
-    <form metho="post" action = "{{route('artist.store')}}">
+    <form method="post" action = "{{route('artist.store')}}">
         @csrf
         {{-- @if(session()->has('success'))
            <div class="btn btn-primary">

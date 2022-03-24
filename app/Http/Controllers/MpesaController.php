@@ -8,7 +8,8 @@ use App\Models\payment;
 
 class MpesaController extends Controller
 {
-    public $artistCode;
+
+
     public function payments(){
         $payments = payment::get();
         return view('payments.index',compact('payments'));
@@ -17,11 +18,11 @@ class MpesaController extends Controller
 
     //
     public function stk(Request $request){
-       $this->artistCode = $request->code;
        $amount = $request->vote;
        $code = $request->code;
        $phone_number =  $request->phone;
        $phone = str_replace("254","0",$phone_number);
+    //    dd($phone);
 
         $BusinessShortCode = env('SHORTCODE');
         $LipaNaMpesaPasskey = env('PASSKEY');
@@ -32,7 +33,7 @@ class MpesaController extends Controller
         $PartyB = env('SHORTCODE');
         $PhoneNumber = $request->phone;
         // $CallBackURL = 'http://491b-105-163-200-73.ngrok.io/folder/callback.php';
-        $CallBackURL = 'https://913c-197-248-18-239.ngrok.io/api/mpesa/stkpush/response';
+        $CallBackURL = 'https://fd3f-197-211-27-230.ngrok.io/api/mpesa/stkpush/response/?code='.$code;
         $AccountReference = 'TalantaAwards artist-code -'.$code;
         $TransactionDesc = 'Payment code X';
         $Remarks = 'Payment Succefull!';
@@ -52,12 +53,14 @@ class MpesaController extends Controller
         $TransactionDesc,
         $Remarks
     );
-    // $senddata = json_encode($stkPushSimulation);
+    $senddata = json_encode($stkPushSimulation);
+    // return $senddata;
     return redirect()->route('payments');
 
     }
 
     public function callback(Request $request){
+
 
 
         $stkCallbackResponse = $request->getContent();
@@ -81,7 +84,7 @@ class MpesaController extends Controller
         $mpesa_payment->amount = $amount;
         $mpesa_payment->mpesa_receipt_number = $mpesa_receipt_number;
         $mpesa_payment->transaction_date = $transaction_date;
-        $mpesa_payment->artist_code = $this->artistCode;
+        $mpesa_payment->artist_code = $_GET['code'];
         $mpesa_payment->save();
 
     }

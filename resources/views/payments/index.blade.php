@@ -1,5 +1,4 @@
-@extends('layouts.backend')
-
+@extends('layouts.backend.layout')
 @section('content')
 <div class="container">
 
@@ -18,6 +17,7 @@
             <td>{{$payment->amount}}</td>
             <td>{{$payment->mpesa_receipt_number}}</td>
             <td>{{$payment->transaction_date}}</td>
+            <td>{{$payment->artist_code}}</td>
 
         </tr>
 

@@ -32,8 +32,8 @@
                     </ul>
                 </li>
                 <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                <li><a class="getstarted scrollto inputSuccess3" href="#about">VOTE NOW</a></li>
-                <li><a class="getstarted scrollto inputSuccess3" href="{{route('vote')}}">APP</a></li>
+                <li><a class="getstarted scrollto inputSuccess3" href="{{route('vote')}}">VOTE NOW</a></li>
+                {{-- <li><a class="getstarted scrollto inputSuccess3" href="{{route('vote')}}">APP</a></li> --}}
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

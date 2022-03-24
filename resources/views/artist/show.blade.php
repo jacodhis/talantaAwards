@@ -1,4 +1,5 @@
-@extends('layouts.backend')
+
+@extends('layouts.backend.layout')
 
 @section('title')
  show {{$artist->name}} details
