@@ -4,7 +4,14 @@
        <ul class="portfolio-filter">
 
            <li>
-            <a href=""  wire:click="category">select Category</a>
+            {{-- <a href=""  wire:click="category">select Category</a> --}}
+            {{-- <select name="" id="" class="form-control">
+                @forelse ($events as $event)
+                <option value="{{$event->id}}">{{$event->event_name}}</option>
+                @empty
+
+                @endforelse
+            </select> --}}
            </li>
            <li>
                <a href="#" class="portfolio-selected" data-filter="*"  wire:click = "allArtists">All</a>

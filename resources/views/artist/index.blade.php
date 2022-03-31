@@ -15,7 +15,7 @@ Artists
 @section('content')
 
 
-<a href="{{route('artist.create')}}" >Add artist</a>
+{{-- <a href="{{route('artist.create')}}" >Add artist</a> --}}
 <table id="example1" class="table table-bordered table-striped">
     <thead>
         <tr>

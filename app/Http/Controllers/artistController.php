@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Models\artist;
 use App\Models\payment;
+use App\Models\event;
 use Illuminate\Http\Request;
 
 class artistController extends Controller
@@ -14,20 +15,22 @@ class artistController extends Controller
         $artists = artist::get();
         return view('artist.index',compact('artists'));
     }
-
-    public function vote()
+    public function create($eventId)
     {
-        $artists = artist::latest()->paginate(5);
-        return view('index2',compact('artists'));
-    }
+        $event = event::where('id','=',$eventId)->first();
+        // $eventId = $event->id;
+       if($event != null){
+        return view('artist.create',compact('event'));
+       }else{
+        return back()->with('error','event does not exist');
+       }
 
-    public function create()
-    {
-        return view('artist.create');
+
     }
 
     public function store(Request $request)
     {
+        // dd($request->all());
         if ($request->hasFile('image')) {
             $filenamewithext = $request->file('image')->getClientOriginalName();
             $filename = pathinfo($filenamewithext, PATHINFO_FILENAME);
@@ -44,6 +47,7 @@ class artistController extends Controller
            $artist->code = mt_rand(100000,500000);
            $artist->gender = $request->gender;
            $artist->image = $filenametostore;
+           $artist->event_id = $request->event_id ?? "";
            $artist->save();
            if($artist){
             return back()->with('success','artist added successfully');

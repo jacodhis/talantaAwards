@@ -29,17 +29,19 @@ Route::get('/vote-for-artist', function () {
     return view('index2');
 })->name('app');
 
-Route::get('/dashboard','artistController@artists')->name('dashboard');
+Route::get('/dashboard',function(){
+    return view('dashboard');
+})->name('dashboard');
 
 Route::get('/artists','artistController@artists')->name('artists');
 Route::get('/artist/{id}','artistController@show')->name('artist.show');
-Route::get('/add-Artist','artistController@create')->name('artist.create');
+Route::get('/add-Artist/{eventId}','artistController@create')->name('artist.create');
 Route::post('/store-Artist','artistController@store')->name('artist.store');
 
 
 Route::get('/vote-HomePage','VoteController@landingPage')->name('vote');
 Route::get('/votes/{artist_id}','VoteController@show')->name('vote.show');
-
+Route::get('/events','eventsController@index')->name('events');
 
 
 //payment via mpesa
