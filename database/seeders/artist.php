@@ -19,16 +19,20 @@ class artist extends Seeder
             'name' =>' artist one',
             'email' =>' artistone@gmail.com',
             'code' => mt_rand(100000,500000),
+            'gender' => 'male'
+
         ]);
         DB::table('artists')->insert([
             'name' =>' artist two',
             'email' =>' artisttwo@gmail.com',
-            'code' => '789106'
+            'code' => '789106',
+            'gender' => 'female'
         ]);
         DB::table('artists')->insert([
             'name' =>' artist three',
             'email' =>' artistthree@gmail.com',
-            'code' => '131415'
+            'code' => '131415',
+            'gender' => 'male'
         ]);
         // DB::table('artists')->insert([
         //     'name' =>' artist four',

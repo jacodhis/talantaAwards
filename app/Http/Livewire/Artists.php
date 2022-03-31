@@ -3,24 +3,35 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Artist;
+use App\Models\artist;
 
 class Artists extends Component
 {
-    public $name;
-    public $email;
-
-
-    public function submit(){
-        // $this->validate();
-        // artist::create([
-        //     'name'=>$this->name,
-        //     'email' =>$this->email
-        // ]);
+    public $artists;
+    public function mount(){
+        $artists = artist::latest()->get();
+        $this->artists = $artists;
+    }
+    public function allArtists(){
+        $artists = artist::latest()->get();
+       $this->artists = $artists;
+    }
+    public function femaleArtist(){
+        $femaleArtists = artist::where('gender','=','female')->get();
+        $this->artists = $femaleArtists;
+    }
+    public function maleArtist(){
+        $maleArtists = artist::where('gender','=','male')->get();
+        $this->artists = $maleArtists;
+    }
+    public function topMale(){
+      dd("will display highest top male");
+    }
+    public function topFemale(){
+        dd("will display highest top female");
     }
     public function render()
     {
-        $artists = artist::paginate(5);
-        return view('livewire.artists',compact('artists'));
+        return view('livewire.artists');
     }
 }

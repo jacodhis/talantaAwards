@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('mainPage');
 
 Route::get('/welcomedashboard', function () {
     return view('dashboard');
@@ -28,14 +28,18 @@ Route::get('/welcomedashboard', function () {
 Route::get('/vote-for-artist', function () {
     return view('index2');
 })->name('app');
+
+Route::get('/dashboard','artistController@artists')->name('dashboard');
+
 Route::get('/artists','artistController@artists')->name('artists');
 Route::get('/artist/{id}','artistController@show')->name('artist.show');
 Route::get('/add-Artist','artistController@create')->name('artist.create');
-Route::get('/store-Artist','artistController@store')->name('artist.store');
+Route::post('/store-Artist','artistController@store')->name('artist.store');
 
 
+Route::get('/vote-HomePage','VoteController@landingPage')->name('vote');
+Route::get('/votes/{artist_id}','VoteController@show')->name('vote.show');
 
-Route::get('/vote-for-artist','artistController@vote')->name('vote');
 
 
 //payment via mpesa

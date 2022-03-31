@@ -2,60 +2,48 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\artist;
 use DB;
+use App\Models\artist;
+use App\Models\payment;
+use Illuminate\Http\Request;
 
 class artistController extends Controller
 {
     public function artists()
     {
-
-        return view('artist.index');
+        $artists = artist::get();
+        return view('artist.index',compact('artists'));
     }
-    public function submit(){
-        dd('hi');
-         }
-    /**
-     * public function submit(){
-     * }
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function vote()
     {
-        $artists = artist::paginate(5);
+        $artists = artist::latest()->paginate(5);
         return view('index2',compact('artists'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
-
         return view('artist.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-
-
+        if ($request->hasFile('image')) {
+            $filenamewithext = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenamewithext, PATHINFO_FILENAME);
+            $ext = $request->file('image')->getClientOriginalExtension();
+            $filenametostore = $filename . '_' . time() . '.' . $ext;
+            $path = $request->file('image')->storeAs('public/artistImages', $filenametostore);
+        } else {
+            $filenametostore = 'noimage.jpg';
+        }
 
            $artist = new artist();
            $artist->name = $request->name;
            $artist->email = $request->email;
            $artist->code = mt_rand(100000,500000);
+           $artist->gender = $request->gender;
+           $artist->image = $filenametostore;
            $artist->save();
            if($artist){
             return back()->with('success','artist added successfully');
@@ -68,16 +56,11 @@ class artistController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //get artist by id
         $artist = DB::table('artists')->where('id',$id)->first();
+
         if($artist == null){
             return back()->with('error','artist  does not exist');
         }

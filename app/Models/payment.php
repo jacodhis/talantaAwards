@@ -11,4 +11,7 @@ class payment extends Model
     protected $table = 'payments';
 
     protected $guarded = [];
+
+
+
 }

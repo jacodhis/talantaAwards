@@ -22,7 +22,7 @@ class MpesaController extends Controller
        $code = $request->code;
        $phone_number =  $request->phone;
        $phone = str_replace("254","0",$phone_number);
-    //    dd($phone);
+    //    dd($code);
 
         $BusinessShortCode = env('SHORTCODE');
         $LipaNaMpesaPasskey = env('PASSKEY');
@@ -33,7 +33,7 @@ class MpesaController extends Controller
         $PartyB = env('SHORTCODE');
         $PhoneNumber = $request->phone;
         // $CallBackURL = 'http://491b-105-163-200-73.ngrok.io/folder/callback.php';
-        $CallBackURL = 'https://fd3f-197-211-27-230.ngrok.io/api/mpesa/stkpush/response/?code='.$code;
+        $CallBackURL = 'https://b1cb-197-211-27-230.ngrok.io/api/mpesa/stkpush/response/?code='.$code;
         $AccountReference = 'TalantaAwards artist-code -'.$code;
         $TransactionDesc = 'Payment code X';
         $Remarks = 'Payment Succefull!';
@@ -54,8 +54,8 @@ class MpesaController extends Controller
         $Remarks
     );
     $senddata = json_encode($stkPushSimulation);
-    // return $senddata;
-    return redirect()->route('payments');
+    return back()->with('success','please wait for an mpesa pop up on your phone.if didnt receiave,you can try using paybill No.345672');
+    // return redirect()->route('payments');
 
     }
 

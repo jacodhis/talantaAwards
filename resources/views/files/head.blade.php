@@ -3,9 +3,10 @@
 <!-- head -->
 <head>
     <title>Online Voting</title>
-    <link href="app/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" /><!-- bootstrap-CSS -->
+    <link href="{{asset('app/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" /><!-- bootstrap-CSS -->
     <link rel="stylesheet" href="app/css/bootstrap-select.css"><!-- bootstrap-select-CSS -->
     <link href="app/css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /><!-- Fontawesome-CSS -->
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" media="all" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type='text/javascript' src='app/js/jquery-2.2.3.min.js'></script>
     <!-- Custom Theme files -->

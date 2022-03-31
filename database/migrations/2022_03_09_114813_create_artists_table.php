@@ -18,6 +18,8 @@ class CreateArtistsTable extends Migration
             $table->string('name');
             $table->string('email')->nullable();
             $table->string('code')->unique();
+            $table->string('image')->nullable();
+            $table->string('gender')->nullable();
 
             $table->timestamps();
         });
