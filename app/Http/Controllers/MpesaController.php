@@ -12,6 +12,7 @@ class MpesaController extends Controller
 
     public function payments(){
         $payments = payment::get();
+        //   $events = event::where('user_id','=',auth()->user()->id)->get();
         return view('payments.index',compact('payments'));
 
     }
@@ -54,7 +55,8 @@ class MpesaController extends Controller
         $Remarks
     );
     $senddata = json_encode($stkPushSimulation);
-    return back()->with('success','please wait for an mpesa pop up on your phone.if didnt receiave,you can try using paybill No.345672');
+    return $senddata;
+    // return back()->with('success','please wait for an mpesa pop up on your phone.if didnt receiave,you can try using paybill No.345672');
     // return redirect()->route('payments');
 
     }

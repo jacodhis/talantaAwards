@@ -13,12 +13,12 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo "authenticated user";?></a>
+          <a href="#" class="d-block">{{auth()->user()->email ?? "your are not admin"}}</a>
         </div>
       </div>
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
+      {{-- <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -27,7 +27,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> --}}
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -79,6 +79,12 @@
                 <a href="{{route('events')}}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Events</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admins')}}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>users/Admins</p>
                 </a>
               </li>
 

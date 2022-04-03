@@ -25,30 +25,41 @@ Route::get('/welcomedashboard', function () {
 
 
 
-Route::get('/vote-for-artist', function () {
-    return view('index2');
-})->name('app');
+// Route::get('/vote-for-artist', function () {
+//     return view('index2');
+// })->name('app');
 
-Route::get('/dashboard',function(){
-    return view('dashboard');
-})->name('dashboard');
 
-Route::get('/artists','artistController@artists')->name('artists');
-Route::get('/artist/{id}','artistController@show')->name('artist.show');
-Route::get('/add-Artist/{eventId}','artistController@create')->name('artist.create');
-Route::post('/store-Artist','artistController@store')->name('artist.store');
+// Route::get('/artists','artistController@artists')->name('artists');
+// Route::get('/artist/{id}','artistController@show')->name('artist.show');
+// Route::get('/add-Artist/{eventId}','artistController@create')->name('artist.create');
+// Route::post('/store-Artist','artistController@store')->name('artist.store');
 
 
 Route::get('/vote-HomePage','VoteController@landingPage')->name('vote');
 Route::get('/votes/{artist_id}','VoteController@show')->name('vote.show');
-Route::get('/events','eventsController@index')->name('events');
 
 
 //payment via mpesa
 Route::post('pay-via-mpesa-online','MpesaController@stk')->name('stk');
-Route::get('/payments', 'MpesaController@payments')->name('payments');
+
+Route::group(['middleware' => ['auth','Admin']],function(){
+
+    Route::get('/artists','artistController@artists')->name('artists');
+    Route::get('/artist/{id}','artistController@show')->name('artist.show');
+    Route::get('/add-Artist/{eventId}','artistController@create')->name('artist.create');
+    Route::post('/store-Artist','artistController@store')->name('artist.store');
+
+    Route::get('/events','eventsController@index')->name('events');
+    Route::get('/payments', 'MpesaController@payments')->name('payments');
+    Route::get('/users', 'UsersController@index')->name('admins');
+
+
+
+
+});
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');

@@ -15,7 +15,7 @@ class events extends Seeder
     public function run()
     {
         //
-        $data = 50;
+        $data = 5;
         for($i = 0; $i< $data;$i++){
             event::create([
                 'event_name' => 'event'.mt_rand(1,10),

@@ -18,6 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
 
+            $table->string('phone')->nullable();
+            $table->string('userType')->default('superAdmin');
+
+
              $table->unsignedBigInteger('role_id')->default(2);
              $table->index('role_id');
 

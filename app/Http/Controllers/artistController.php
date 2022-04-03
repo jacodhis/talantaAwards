@@ -12,12 +12,14 @@ class artistController extends Controller
 {
     public function artists()
     {
-        $artists = artist::get();
-        return view('artist.index',compact('artists'));
+        // $artists = artist::get();
+        // dd($artists);
+        return view('artist.index');
     }
     public function create($eventId)
     {
         $event = event::where('id','=',$eventId)->first();
+        // dd($event);
         // $eventId = $event->id;
        if($event != null){
         return view('artist.create',compact('event'));

@@ -11,4 +11,8 @@ class event extends Model
 
     protected $table = 'events';
     protected $fillable = [];
+
+    public function admin(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
+        $this->call(superAdmin::class);
         $this->call(artist::class);
         $this->call(payments::class);
         $this->call(roles::class);

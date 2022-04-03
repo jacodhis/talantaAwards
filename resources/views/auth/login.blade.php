@@ -1,4 +1,91 @@
-@extends('layouts.app')
+@extends('layouts.vote.layout')
+
+@section('title')
+    Sign In
+@endsection
+@section('content')
+<div class="content-wrapper hide-until-loading"><div class="body-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 animated" data-animtype="flipInY"
+                 data-animrepeat="0"
+                 data-speed="1s"
+                 data-delay="0.5s">
+                <h2 class="h2-section-title">Sign In</h2>
+
+                <div class="i-section-title">
+                    <i class="icon-users-outline">
+
+                    </i>
+                </div>
+
+                <div class="space-sep20"></div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6 col-sm-6 centered">
+                <div class="classic-form">
+                    {{-- <form class="form-horizontal" role="form" novalidate> --}}
+                        <form method="POST" action="{{ route('login') }}" class="form-horizontal" role="form" novalidate>
+                            @csrf
+                        <div class="form-group">
+                            <label for="email" class="col-sm-3 control-label">Email</label>
+                            <div class="col-sm-9">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                {{-- <input type="email" class="form-control" id="email" name="email" placeholder="Email"> --}}
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                               @enderror
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-3 control-label">Password</label>
+                            <div class="col-sm-9">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                {{-- <input type="password" class="form-control" id="password" name="password" placeholder="Password"> --}}
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox">Remember Me
+
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <button type="submit" class="btn btn-block btn-primary">Sign In</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+@endsection
+
+
+
+
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -70,4 +157,6 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
+
+

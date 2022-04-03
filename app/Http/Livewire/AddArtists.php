@@ -12,7 +12,7 @@ class AddArtists extends Component
     public function event($EventId){
 
       $eventname =  event::where('id','=',$EventId)->first();
-    //   dd($eventname);
+      dd($eventname);
       $this->eventName = $eventname;
 
     }
