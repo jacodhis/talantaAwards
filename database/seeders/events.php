@@ -19,8 +19,8 @@ class events extends Seeder
         for($i = 0; $i< $data;$i++){
             event::create([
                 'event_name' => 'event'.mt_rand(1,10),
-                'description' => '',
-                // 'user_id' => .'$data[i]',
+                'description' => 'lorem ipsum dorum colapse luongament',
+                'user_id' => mt_rand(1,5),
             ]);
         }
 

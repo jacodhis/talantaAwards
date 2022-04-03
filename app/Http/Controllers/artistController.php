@@ -12,8 +12,6 @@ class artistController extends Controller
 {
     public function artists()
     {
-        // $artists = artist::get();
-        // dd($artists);
         return view('artist.index');
     }
     public function create($eventId)
@@ -50,6 +48,7 @@ class artistController extends Controller
            $artist->gender = $request->gender;
            $artist->image = $filenametostore;
            $artist->event_id = $request->event_id ?? "";
+           $artist->user_id = auth()->user()->id;
            $artist->save();
            if($artist){
             return back()->with('success','artist added successfully');

@@ -13,7 +13,9 @@ class ViewArtists extends Component
     }
     public function render()
     {
-        $artists = artist::get();
+        $artists = artist::where('user_id','=',auth()->user()->id)->get();
+        // dd($artists);
+        // $artists = artist::get();
         return view('livewire.view-artists',compact('artists'));
     }
 }

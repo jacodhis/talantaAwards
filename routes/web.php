@@ -52,7 +52,10 @@ Route::group(['middleware' => ['auth','Admin']],function(){
 
     Route::get('/events','eventsController@index')->name('events');
     Route::get('/payments', 'MpesaController@payments')->name('payments');
-    Route::get('/users', 'UsersController@index')->name('admins');
+    //admins
+    Route::get('/admins', 'UsersController@index')->name('admins');
+    Route::get('/admins/create-admin', 'UsersController@create')->name('create.admin');
+    Route::post('/store-Admin','UsersController@store')->name('admin.store');
 
 
 

@@ -43,6 +43,7 @@ class superAdmin extends Seeder
             'name' => 'Super Admin',
             'email' => 'superAdmin@gmail.com',
             'userType' => 'Admin',
+            'role_id' =>1,
             'password' => Hash::make('12345678'),
             'remember_token' => Str::random(60),
         ]);
@@ -51,6 +52,7 @@ class superAdmin extends Seeder
             'name' => 'Super Admin',
             'email' => 'admin1@gmail.com',
             'userType' => 'Admin',
+            'role_id' =>2,
             'password' => Hash::make('12345678'),
             'remember_token' => Str::random(60),
         ]);
@@ -58,6 +60,7 @@ class superAdmin extends Seeder
             'name' => 'Super Admin',
             'email' => 'admin3@gmail.com',
             'userType' => 'Admin',
+            'role_id' =>2,
             'password' => Hash::make('12345678'),
             'remember_token' => Str::random(60),
         ]);

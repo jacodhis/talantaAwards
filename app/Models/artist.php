@@ -12,5 +12,7 @@ class artist extends Model
     protected $table= 'artists';
     protected $guarded = [];
 
-
+    public function admin(){
+        return $this->belongsTo('App\Models\User');
+    }
  }

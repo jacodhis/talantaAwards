@@ -48,5 +48,14 @@ class User extends Authenticatable
     public function isAdmin(){
         return $this->usertype;
     }
+    public function roleName(){
+        return $this->role->role;
+    }
+    public function artists(){
+        return $this->hasMany('App\Models\artist');
+    }
+    public function role(){
+        return $this->belongsTo('App\Models\role');
+    }
 
 }

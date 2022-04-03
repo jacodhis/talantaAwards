@@ -21,8 +21,13 @@ class CreateArtistsTable extends Migration
             $table->string('image')->nullable();
             $table->string('gender')->nullable();
 
+             $table->unsignedBigInteger('user_id')->default(2);
+             $table->index('user_id');
+
             $table->unsignedBigInteger('event_id')->nullable();
             $table->index('event_id');
+
+
 
 
             $table->timestamps();
