@@ -11,22 +11,12 @@
             <li>
                 <a href="{{route('vote')}}">Home</a>
             </li>
-            @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+            @auth
+            <a href="{{ route('dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" style="color: #ffff">{{auth()->user()->name}}</a>
+            @else
+            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" style="color: white">Log in</a>
+            @endauth
 
-                    {{-- @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                    @endif --}}
-                @endauth
-            </div>
-            @endif
-
-            {{-- <li><a href="{{ route('login') }}">Login</a></li> --}}
-            {{-- <li class="active" data-toggle="modal" data-target="#exampleModal"><a href="javascript:void(0)"> Login</a></li> --}}
         </ol>
     </div>
     <!-- BreadCrumb -->

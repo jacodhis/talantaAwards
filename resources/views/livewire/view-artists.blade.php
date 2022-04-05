@@ -1,5 +1,9 @@
 <div>
-
+    @if(Session::has('success'))
+    <div class="col-md-6 mx-auto">
+        <p class="alert alert-danger">{{ Session::get('success') }}</p>
+    </div>
+    @endif
     <table id="example1" class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -7,8 +11,8 @@
                 <td>Email</td>
                 <td>Code</td>
                 <td>votes</td>
-                <td>admin</td>
-                <td>action</td>
+                <td>Event Name</td>
+                <td>Action</td>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +27,7 @@
                     @endphp
                    {{$votes->count()}}
                 </td>
-                <td>{{$artist->user_id ?? ""}}</td>
+                <td>{{$artist->event->event_name  ?? "N/A"}}</td>
                 <td><a href="javascript:void(0)" wire:click="delete({{$artist->id}})" class="btn btn-danger sm">X</a></td>
             </tr>
 
@@ -38,7 +42,8 @@
                 <td>Email</td>
                 <td>Code</td>
                 <td>votes</td>
-                <td>action</td>
+                <td>Event Name</td>
+                <td>Action</td>
             </tr>
         </tfoot>
       </table>

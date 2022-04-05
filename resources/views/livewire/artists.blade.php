@@ -24,7 +24,9 @@
         @forelse ($artists as $artist)
         <div class="thumb-label-item col-md-3">
             <div class="img-overlay thumb-label-item-img">
-               <img src="{{asset('/storage/artistImages/'.$artist->image)}}" class="img-fluid" height="200px" width="100px">
+                <a href="{{route('vote.show',[$artist->id])}}">
+                     <img src="{{asset('/storage/artistImages/'.$artist->image)}}" class="img-fluid" height="200px" width="100px">
+                    </a>
                 <div class="item-img-overlay">
                     <div class="item_img_overlay_content">
                         <h3 class="thumb-label-item-title">
@@ -38,8 +40,9 @@
 
         </div>
     @empty
-      0
+      no artists on this event
     @endforelse
+
 
 
 
@@ -113,9 +116,12 @@
                         </div> --}}
                     </li>
                 </ul>
-                   @empty
 
+                   @empty
+                    No Event
                    @endforelse
+                   {{-- {!! $event->links() !!} --}}
+
 
                 </div>
             </div>

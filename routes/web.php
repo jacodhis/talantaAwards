@@ -51,6 +51,8 @@ Route::group(['middleware' => ['auth','Admin']],function(){
     Route::post('/store-Artist','artistController@store')->name('artist.store');
 
     Route::get('/events','eventsController@index')->name('events');
+    Route::get('/events/create','eventsController@create')->name('event.create');
+    Route::post('event/store-event','eventsController@store')->name('event.store');
     Route::get('/payments', 'MpesaController@payments')->name('payments');
     //admins
     Route::get('/admins', 'UsersController@index')->name('admins');

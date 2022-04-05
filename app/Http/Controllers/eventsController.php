@@ -9,9 +9,18 @@ class eventsController extends Controller
 {
     //
    public function index(){
-    // $events = event::get();
-    $events = event::where('user_id','=',auth()->user()->id)->get();
-    // dd($events);
-    return view('events.index',compact('events'));
+    return view('events.index');
+   }
+   public function create(){
+    return view('events.create');
+   }
+   public function store(Request $request){
+    //    dd($request->all());
+       $event = new event();
+       $event->event_name = $request->name;
+       $event->description = $request->description;
+       $event->user_id = auth()->user()->id;
+       $event->save();
+       return back()->with('success','Event created successfully');
    }
 }

@@ -11,7 +11,8 @@ class Artists extends Component
 {
     use WithPagination;
 
-    public $pagianteNumber = 10;
+    public $pagianteArtistsNumber = 8;
+    public $pagianteEventsNumber = 8;
 
 
     public $artists;
@@ -23,7 +24,9 @@ class Artists extends Component
 
     public function mount(){
         $artists = artist::latest()->get();
-        $events = event::get();
+        // $artists = artist::inRandomOrder()->paginate($this->pagianteArtistsNumber)->all();
+        // $events = event::latest()->paginate($this->pagianteEventsNumber)->all();
+        $events = event::latest()->get();
         $this->artists = $artists;
         $this->events = $events;
     }
@@ -33,6 +36,7 @@ class Artists extends Component
     }
     public function event($id){
         $artists = artist::where('event_id',$id)->get();
+        // dd($artists);
         $eventName = event::findorFail($id);
         $this->eventName = $eventName->event_name;
         $this->storeEventId = $id;

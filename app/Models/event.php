@@ -15,4 +15,7 @@ class event extends Model
     public function admin(){
         return $this->belongsTo('App\Models\User');
     }
+    public function artists(){
+        return $this->hasMany('App\Models\artist');
+    }
 }

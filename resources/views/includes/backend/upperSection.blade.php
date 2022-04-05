@@ -5,10 +5,17 @@
         <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">CPU Traffic</span>
+          <span class="info-box-text">All Events</span>
           <span class="info-box-number">
-            10
-            <small>%</small>
+           @if (auth()->user()->roleName() == "superAdmin")
+             @php
+                $events =  \App\Models\event::get() ;
+             @endphp
+             {{$events->count() ??""}}
+           @else
+           {{auth()->user()->events->count()??""}}
+           @endif
+            {{-- <small>%</small> --}}
           </span>
         </div>
         <!-- /.info-box-content -->
@@ -21,8 +28,21 @@
         <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Likes</span>
-          <span class="info-box-number">41,410</span>
+            @if (auth()->user()->roleName() == "superAdmin")
+              <span class="info-box-text"><a href="{{route('admins')}}">All Admins</a> </span>
+            @else
+            <span class="info-box-text">All Artists</span>
+            @endif
+          <span class="info-box-number">
+            @if (auth()->user()->roleName() == "superAdmin")
+            @php
+             $admins =  \App\Models\User::get() ;
+            @endphp
+            {{$admins->count() ??""}}
+            @else
+            {{auth()->user()->artists->count()??""}}
+            @endif
+              </span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -38,8 +58,19 @@
         <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Sales</span>
-          <span class="info-box-number">760</span>
+            @if (auth()->user()->roleName() == "superAdmin")
+              <span class="info-box-text">All Artists</span>
+              <span class="info-box-number">
+                @php
+                $artists =  \App\Models\artist::get() ;
+               @endphp
+               {{$artists->count() ??""}}
+              </span>
+            @else
+            <span class="info-box-text">Any Other</span>
+              <span class="info-box-number">750</span>
+
+            @endif
         </div>
         <!-- /.info-box-content -->
       </div>

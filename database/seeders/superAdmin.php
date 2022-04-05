@@ -49,7 +49,7 @@ class superAdmin extends Seeder
         ]);
 
         $user = User::create([
-            'name' => 'Super Admin',
+            'name' => 'Admin1',
             'email' => 'admin1@gmail.com',
             'userType' => 'Admin',
             'role_id' =>2,
@@ -57,8 +57,8 @@ class superAdmin extends Seeder
             'remember_token' => Str::random(60),
         ]);
         $user = User::create([
-            'name' => 'Super Admin',
-            'email' => 'admin3@gmail.com',
+            'name' => 'Admin2',
+            'email' => 'admin2@gmail.com',
             'userType' => 'Admin',
             'role_id' =>2,
             'password' => Hash::make('12345678'),

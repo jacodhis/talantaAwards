@@ -15,4 +15,7 @@ class artist extends Model
     public function admin(){
         return $this->belongsTo('App\Models\User');
     }
+    public function event(){
+        return $this->belongsTo('App\Models\event');
+    }
  }

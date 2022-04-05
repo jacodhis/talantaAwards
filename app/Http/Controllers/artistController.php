@@ -17,13 +17,11 @@ class artistController extends Controller
     public function create($eventId)
     {
         $event = event::where('id','=',$eventId)->first();
-        // dd($event);
-        // $eventId = $event->id;
-       if($event != null){
-        return view('artist.create',compact('event'));
-       }else{
-        return back()->with('error','event does not exist');
-       }
+        if($event != null){
+            return view('artist.create',compact('event'));
+        }else{
+            return back()->with('error','event does not exist');
+        }
 
 
     }
