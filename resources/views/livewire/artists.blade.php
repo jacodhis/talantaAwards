@@ -110,6 +110,7 @@
                     <li>
                         <div class="posts-list-thumbnail">
                             <a href="javascript:void(0);" wire:click="event({{$event->id}})">{{$event->event_name}}</a>
+
                         </div>
                         {{-- <div class="posts-list-content">
 

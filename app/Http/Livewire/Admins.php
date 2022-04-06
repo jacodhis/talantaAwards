@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\User;
 use session;
+use Illuminate\Support\Facades\Hash;
 
 class Admins extends Component
 {

@@ -83,6 +83,8 @@ class UsersController extends Controller
     public function edit($id)
     {
         //
+       $user  = User::findorFail($id);
+       return view('admins.edit',compact('user'));
     }
 
     /**
@@ -95,6 +97,19 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $admin = User::findorFail($id);
+        $admin->name = $request->name;
+        $admin->email = $request->email;
+        $admin->phone = $request->phone;
+        $admin->gender = $request->gender;
+        $admin->password = Hash::make('12345678');
+        $admin->save();
+        if($admin){
+            return back()->with('success','admin updated successfully');
+           }else{
+            return back()->with('error','admin not updated successfully');
+
+           }
     }
 
     /**

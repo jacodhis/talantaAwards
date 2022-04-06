@@ -24,7 +24,6 @@ Route::get('/welcomedashboard', function () {
 
 
 
-
 // Route::get('/vote-for-artist', function () {
 //     return view('index2');
 // })->name('app');
@@ -48,6 +47,8 @@ Route::group(['middleware' => ['auth','Admin']],function(){
     Route::get('/artists','artistController@artists')->name('artists');
     Route::get('/artist/{id}','artistController@show')->name('artist.show');
     Route::get('/add-Artist/{eventId}','artistController@create')->name('artist.create');
+    Route::get('/artist/edit-artist/{id}', 'artistController@edit')->name('edit.artist');
+    Route::post('/artist/update-artist/{id}', 'artistController@update')->name('update.artist');
     Route::post('/store-Artist','artistController@store')->name('artist.store');
 
     Route::get('/events','eventsController@index')->name('events');
@@ -57,6 +58,8 @@ Route::group(['middleware' => ['auth','Admin']],function(){
     //admins
     Route::get('/admins', 'UsersController@index')->name('admins');
     Route::get('/admins/create-admin', 'UsersController@create')->name('create.admin');
+    Route::get('/admins/edit-admin/{id}', 'UsersController@edit')->name('edit.admin');
+    Route::post('/admins/update-admin/{id}', 'UsersController@update')->name('update.admin');
     Route::post('/store-Admin','UsersController@store')->name('admin.store');
 
 

@@ -137,7 +137,7 @@
 
 
         <!-- Audio Blog Post ( Soundcloud ) -->
-        <div class="blog-post">
+        {{-- <div class="blog-post">
 
             <div class="blog-post-type">
                 <i class="icon-sound"> </i>
@@ -209,7 +209,7 @@
 
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Audio Blog Post ( Soundcloud ) -->
 
 
@@ -368,6 +368,7 @@
 
            @endforelse
             <!-- //Portfolio Item// -->
+            {{$artists->links()}}
 
 
         </div>

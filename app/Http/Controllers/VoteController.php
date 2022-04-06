@@ -12,7 +12,7 @@ class VoteController extends Controller
         return view('landingPage');
     }
     public function show( $id){
-        $artists = DB::table('artists')->get();
+        $artists = DB::table('artists')->simplePaginate(2);
         $artist = artist::findorFail($id);
         return view('votes.show',compact('artist','artists'));
     }

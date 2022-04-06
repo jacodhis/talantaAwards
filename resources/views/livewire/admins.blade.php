@@ -26,7 +26,10 @@
                 <td>
                     {{$admin->events->count() ?? "0"}}
                 </td>
-                <td><a href="javascript:void(0)" wire:click="delete({{$admin->id}})" class="btn btn-danger sm">X</a></td>
+                <td>
+                    <a href="javascript:void(0)" wire:click="delete({{$admin->id}})" class="btn btn-danger sm">X</a>
+                    <a href="{{route('edit.admin',[$admin->id])}}" class="btn btn-danger sm">Edit</a>
+                </td>
             </tr>
 
             @empty

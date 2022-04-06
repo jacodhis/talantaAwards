@@ -77,9 +77,13 @@ class artistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
         //
+        $artist = artist::findorFail($id);
+        $event =$artist->event ?? "";
+         return view('artist.edit',compact('artist','event'));
+
     }
 
     /**
@@ -91,7 +95,31 @@ class artistController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if ($request->hasFile('image')) {
+            $filenamewithext = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenamewithext, PATHINFO_FILENAME);
+            $ext = $request->file('image')->getClientOriginalExtension();
+            $filenametostore = $filename . '_' . time() . '.' . $ext;
+            $path = $request->file('image')->storeAs('public/artistImages', $filenametostore);
+        } else {
+            $filenametostore = 'noimage.jpg';
+        }
         //
+        $artist = artist::findorFail($id);
+        $artist->name = $request->name;
+        $artist->email = $request->email;
+        $artist->code = mt_rand(100000,500000);
+        $artist->gender = $request->gender;
+        $artist->image = $filenametostore;
+        $artist->event_id = $request->event_id ?? "";
+        $artist->user_id = auth()->user()->id;
+        $artist->save();
+        if($artist){
+         return back()->with('success','artist added successfully');
+        }else{
+         return back()->with('error','artist not added successfully');
+
+        }
     }
 
     /**

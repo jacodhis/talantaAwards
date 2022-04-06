@@ -28,7 +28,10 @@
                    {{$votes->count()}}
                 </td>
                 <td>{{$artist->event->event_name  ?? "N/A"}}</td>
-                <td><a href="javascript:void(0)" wire:click="delete({{$artist->id}})" class="btn btn-danger sm">X</a></td>
+                <td>
+                    <a href="javascript:void(0)" wire:click="delete({{$artist->id}})" class="btn btn-danger sm">X</a>
+                    <a href="{{route('edit.artist',[$artist->id])}}" class="btn btn-danger sm">Edit</a>
+                </td>
             </tr>
 
             @empty
