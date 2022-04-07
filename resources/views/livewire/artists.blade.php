@@ -57,21 +57,20 @@
                     <p>@php if(isset($eventName))
                     {
                         echo  '<h1>'.$eventName.'</h1>';
-                    }else{
-                        echo "";
+
                     }
                     @endphp</p>
-                    {{-- <form action="#" method="post"> --}}
+                    <form wire:submit.prevent="search">
                         <div class="input-group">
 
-                            <input type="text" name="q" wire:model="searchEvent" class="form-control blog-search-input text-input" placeholder="Search.." />
+                            <input type="text" wire:model="term" wire:model="term" class="form-control blog-search-input text-input" placeholder="Search.." />
                             <span class="input-group-addon">
-                                        <button class="blog-search-button icon-search ">
+                                        <button typre="submit" class="blog-search-button icon-search ">
                                         </button>
                                     </span>
-                                    {{-- {{$searchEvent}} --}}
+
                         </div>
-                    {{-- </form> --}}
+                    </form>
                 </div>
             </div>
             <!-- Sidebar Block -->
@@ -105,11 +104,11 @@
                 </h3>
 
                 <div class="sidebar-content">
-                   @forelse ($events as $event)
+                   @forelse ($events->take(4) as $event)
                    <ul class="posts-list">
                     <li>
                         <div class="posts-list-thumbnail">
-                            <a href="javascript:void(0);" wire:click="event({{$event->id}})">{{$event->event_name}}</a>
+                            <a href="javascript:void(0);" wire:click="event({{ $event->id}}) ">{{$event->event_name}}</a>
 
                         </div>
                         {{-- <div class="posts-list-content">

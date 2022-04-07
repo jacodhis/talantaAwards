@@ -36,8 +36,13 @@ Add An Artist
             </select>
           </div>
 
+
             <input type="hidden"  name="event_id" value="<?php echo $event->id ;?>" class="form-control" @disabled(true) >
 
+            <div class="form-group">
+                <label for="exampleInputEmail1">Description</label>
+               <textarea name="description" id="" cols="30" rows="10" class="form-control">Describe Artist</textarea>
+              </div>
 
           <div class="form-group py-4 ">
             <input type="file" class="form-control" name="image" id="image">

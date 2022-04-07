@@ -15,7 +15,7 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('event_name')->nullable();
+            $table->string('event_name')->nullable()->index();
             $table->string('description')->nullable();
 
             $table->unsignedBigInteger('user_id')->nullable();

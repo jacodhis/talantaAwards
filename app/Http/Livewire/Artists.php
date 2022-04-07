@@ -12,28 +12,30 @@ class Artists extends Component
     use WithPagination;
 
     public $pagianteArtistsNumber = 8;
-    public $pagianteEventsNumber = 8;
+    public $pagianteEventsNumber = 2;
 
 
     public $artists;
-    public $searchCategory;
+    public $term;
     public $events;
     public $storeEventId;
     public $eventName;
-    public $searchEvent;
 
     public function mount(){
         $artists = artist::latest()->get();
         // $artists = artist::inRandomOrder()->paginate($this->pagianteArtistsNumber)->all();
-        // $events = event::latest()->paginate($this->pagianteEventsNumber)->all();
+        // $events = event::paginate($this->pagianteEventsNumber)->all();
+        // dd($events);
         $events = event::latest()->get();
         $this->artists = $artists;
         $this->events = $events;
     }
-    public function searchEvent(){
-        $event = event::where('event_name','LIKE','%'.$this->searchEvent.'%')->get();
-        dd($event);
+    public function search(){
+            $events = event::where('event_name','LIKE',"%$this->term%")->get();
+        $this->events = $events;
+
     }
+
     public function event($id){
         $artists = artist::where('event_id',$id)->get();
         // dd($artists);
@@ -98,6 +100,12 @@ class Artists extends Component
     }
     public function render()
     {
-        return view('livewire.artists');
+        // $artists = artist::latest()->get();
+        // $events = event::latest()->get();
+        // $this->events = $events;
+        // $this->artists = $artists;
+        return view('livewire.artists',[
+
+        ]);
     }
 }

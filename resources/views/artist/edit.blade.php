@@ -19,21 +19,25 @@ Edit An Artist
         @csrf
         <div class="form-group">
           <label for="exampleInputEmail1">Name</label>
-          <input type="text" value="{{$artist->name}}" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" required>
+          <input type="text" value="{{$artist->name ??"update descptionhjk"}}" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" required>
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
-            <input type="text" value="{{$artist->email}}" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+            <input type="text" value="{{$artist->email??""}}" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
 
           </div>
 
           <div class="form-group">
-            <label for="exampleInputEmail1">Gender</label><small>({{$artist->gender}})</small>
+            <label for="exampleInputEmail1">Gender</label><small>({{$artist->gender ??""}})</small>
             <select name="gender" id="" class="form-control" >
                 <option value="">select Gender</option>
                 <option value="male">male</option>
                 <option value="female">Female</option>
             </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Description</label>
+           <textarea name="description" id="" cols="30" rows="10" class="form-control" >{{$artist->description ??""}}</textarea>
           </div>
 
             <input type="hidden"  name="event_id" value="<?php echo $event->id ;?>" class="form-control" @disabled(true) >

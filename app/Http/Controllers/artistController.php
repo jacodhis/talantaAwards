@@ -43,8 +43,9 @@ class artistController extends Controller
            $artist->name = $request->name;
            $artist->email = $request->email;
            $artist->code = mt_rand(100000,500000);
+           $artist->description = $request->description;
            $artist->gender = $request->gender;
-           $artist->image = $filenametostore;
+           $artist->image = $filenametostore ?? NULL;
            $artist->event_id = $request->event_id ?? "";
            $artist->user_id = auth()->user()->id;
            $artist->save();
@@ -110,7 +111,8 @@ class artistController extends Controller
         $artist->email = $request->email;
         $artist->code = mt_rand(100000,500000);
         $artist->gender = $request->gender;
-        $artist->image = $filenametostore;
+        $artist->description = $request->description;
+        $artist->image = $filenametostore ?? NULL;
         $artist->event_id = $request->event_id ?? "";
         $artist->user_id = auth()->user()->id;
         $artist->save();

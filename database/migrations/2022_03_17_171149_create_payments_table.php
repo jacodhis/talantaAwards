@@ -19,7 +19,7 @@ class CreatePaymentsTable extends Migration
             $table->string('amount')->nullable();
             $table->string('mpesa_receipt_number')->nullable();
             $table->string('transaction_date')->nullable();
-            $table->string('artist_code')->nullable();
+            $table->string('artist_code')->nullable()->index();
             $table->timestamps();
         });
     }

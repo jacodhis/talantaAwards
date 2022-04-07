@@ -19,7 +19,7 @@ class Events extends Component
     public function render()
     {
         $events = event::where('user_id','=',auth()->user()->id)->get();
-        // dd($events);
+
         return view('livewire.events',compact('events'));
     }
 }

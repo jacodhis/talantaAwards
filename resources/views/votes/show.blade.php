@@ -85,7 +85,10 @@
                     <!-- //Read More// -->
 
                 </div>
-                <div class="row">
+
+                <div class="row py-4">
+
+                    <p>{{$artist->description ??""}}</p>
                     @include('includes.inc.messages')
                 </div>
                 <h2>
@@ -241,7 +244,7 @@
                    {{$artist->name ?? ""}}
                 </h3>
 
-                <div class="sidebar-content tags">
+                {{-- <div class="sidebar-content tags">
                     <a href="" class="nav-link">HTML5</a>
                     <a href="" class="nav-link">CSS3</a>
                     <a href="">jQuery</a>
@@ -251,7 +254,7 @@
                     <a href="">CSS</a>
                     <a href="">Social Media</a>
                     <a href="">HTML</a>
-                </div>
+                </div> --}}
             </div>
             <!-- Sidebar Block -->
 
@@ -278,7 +281,7 @@
                                         </span>
                             </div>
                         </li>
-                        <li>
+                        {{-- <li>
                             <div class="posts-list-thumbnail">
                                 <a href="">
                                     <img src="images/placeholders/blog2-thumb.jpg" alt="" />
@@ -304,17 +307,17 @@
                                         </span>
                             </div>
                         </li>
-                        <li>
+                        <li> --}}
                             <div class="posts-list-thumbnail">
-                                <a href="">
+                                {{-- <a href="">
                                     <img src="images/placeholders/blog4-thumb.jpg" alt="" />
-                                </a>
+                                </a> --}}
                             </div>
                             <div class="posts-list-content">
-                                <a href="" class="posts-list-title">Sidebar post example </a>
+                                {{-- <a href="" class="posts-list-title">Sidebar post example </a>
                                 <span class="posts-list-meta">
                                             July 30, 2013
-                                        </span>
+                                        </span> --}}
                             </div>
                         </li>
                     </ul>

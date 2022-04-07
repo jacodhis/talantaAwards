@@ -7,7 +7,7 @@ Events
 @endsection
 
 @section('subTitle')
-<a href="{{route('event.create')}}" > Add Event </a>
+<a href="{{route('event.create')}}" style="color:white"> Add Event </a>
 @endsection
 
 

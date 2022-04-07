@@ -13,8 +13,16 @@ class eventsController extends Controller
    }
    public function create(){
     return view('events.create');
+    $events = auth()->user()->events;
+
+
    }
    public function store(Request $request){
+    //
+    // dd(auth()->user()->roleName());
+    if(auth()->user()->roleName() == "admin" && auth()->user()->events->count() == 2 ){
+        return back()->with('error','Can only add two events');
+    }
     //    dd($request->all());
        $event = new event();
        $event->event_name = $request->name;
