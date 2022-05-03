@@ -26,6 +26,11 @@ Route::post('/register','apis\UsersController@register');
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('/artists','apis\ArtistController@index');
     Route::post('/logout','apis\UsersController@logout');
+    Route::get('/artists/{id}','apis/ArtistsController@show');
+
+   Route::get('/events','apis\EventsController@index');
+   Route::get('/event/{id}','apis\EventsController@show');
+
 });
 
 Route::POST('mpesa/stkpush/response', 'MpesaController@callback');

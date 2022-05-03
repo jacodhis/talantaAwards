@@ -10,7 +10,8 @@ class ArtistController extends Controller
 {
     //
     public function index(){
-        $data = artist::get();
-        return response()->json($data);
+        return response([
+            'data' => auth()->user()->loadartists(),
+        ]);
     }
 }

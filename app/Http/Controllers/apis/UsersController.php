@@ -12,6 +12,9 @@ class UsersController extends Controller
 {
     //
     public function register(Request $request){
+        // return response([
+        //     'data'=>$request
+        // ]);
         $data = file_get_contents('php://input');
         $dat = json_decode($data);
         $user = User::where('email',$dat->email)->first();

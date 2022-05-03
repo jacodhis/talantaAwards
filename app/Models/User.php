@@ -58,4 +58,9 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\role');
     }
 
+    public function loadartists(){
+        $artists = artist::where('user_id','=',$this->id)->get();
+        return $artists;
+    }
+
 }

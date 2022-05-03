@@ -19,11 +19,11 @@ class MpesaController extends Controller
 
     //
     public function stk(Request $request){
+        // dd($request->all());
        $amount = $request->vote;
        $code = $request->code;
        $phone_number =  $request->phone;
        $phone = str_replace("254","0",$phone_number);
-    //    dd($code);
 
         $BusinessShortCode = env('SHORTCODE');
         $LipaNaMpesaPasskey = env('PASSKEY');

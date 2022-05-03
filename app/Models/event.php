@@ -18,4 +18,12 @@ class event extends Model
     public function artists(){
         return $this->hasMany('App\Models\artist');
     }
+
+    public function allEvents(){
+        $events = event::where('user_id','=',auth()->user()->id)
+        ->with('artists:event_id,name')
+         ->with('admin:id,name')->get();
+         return auth()->user()->id;
+
+    }
 }

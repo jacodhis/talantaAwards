@@ -21,6 +21,9 @@ class Admins extends Component
     {
 
         $admins = User::get();
-        return view('livewire.admins',compact('admins'));
+         if($admins->isNotEmpty()){
+            return view('livewire.admins',compact('admins'));
+         }
+        //
     }
 }
